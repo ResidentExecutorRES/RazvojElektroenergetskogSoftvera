@@ -1,0 +1,14 @@
+﻿<Window x:Class="KorisnickiInterfejs.UneseniPodaci"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KorisnickiInterfejs"
+        mc:Ignorable="d"
+        Title="UneseniPodaci" Height="187.2" Width="332.3">
+    <Grid>
+        <Label Content="Uspesno ste uneli podatke u bazu podataka" Margin="35,42,30.6,77.6"/>
+        <Button Name="backButton" Content="Povratak na pocetnu" Click="BackButton_Click" Margin="10,111,190.6,9.6"/>
+        <Button Name="closeButton" Content="Close" Click="CloseButton_Click" Margin="175,111,9.6,9.6"/>
+    </Grid>
+</Window>

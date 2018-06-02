@@ -1,0 +1,12 @@
+C:\Users\Genguša\Desktop\RES\ProjekatRES\RazvojElektroenergetskogSoftvera\ResidentExecutor\ServisniSloj\bin\Debug\ServisniSloj.dll
+C:\Users\Genguša\Desktop\RES\ProjekatRES\RazvojElektroenergetskogSoftvera\ResidentExecutor\ServisniSloj\bin\Debug\ServisniSloj.pdb
+C:\Users\Genguša\Desktop\RES\ProjekatRES\RazvojElektroenergetskogSoftvera\ResidentExecutor\ServisniSloj\bin\Debug\Contract.dll
+C:\Users\Genguša\Desktop\RES\ProjekatRES\RazvojElektroenergetskogSoftvera\ResidentExecutor\ServisniSloj\bin\Debug\PristupDB.exe
+C:\Users\Genguša\Desktop\RES\ProjekatRES\RazvojElektroenergetskogSoftvera\ResidentExecutor\ServisniSloj\bin\Debug\Contract.pdb
+C:\Users\Genguša\Desktop\RES\ProjekatRES\RazvojElektroenergetskogSoftvera\ResidentExecutor\ServisniSloj\bin\Debug\PristupDB.pdb
+C:\Users\Genguša\Desktop\RES\ProjekatRES\RazvojElektroenergetskogSoftvera\ResidentExecutor\ServisniSloj\bin\Debug\PristupDB.exe.config
+C:\Users\Genguša\Desktop\RES\ProjekatRES\RazvojElektroenergetskogSoftvera\ResidentExecutor\ServisniSloj\obj\Debug\ServisniSloj.csprojResolveAssemblyReference.cache
+C:\Users\Genguša\Desktop\RES\ProjekatRES\RazvojElektroenergetskogSoftvera\ResidentExecutor\ServisniSloj\obj\Debug\ServisniSloj.csproj.CoreCompileInputs.cache
+C:\Users\Genguša\Desktop\RES\ProjekatRES\RazvojElektroenergetskogSoftvera\ResidentExecutor\ServisniSloj\obj\Debug\ServisniSloj.csproj.CopyComplete
+C:\Users\Genguša\Desktop\RES\ProjekatRES\RazvojElektroenergetskogSoftvera\ResidentExecutor\ServisniSloj\obj\Debug\ServisniSloj.dll
+C:\Users\Genguša\Desktop\RES\ProjekatRES\RazvojElektroenergetskogSoftvera\ResidentExecutor\ServisniSloj\obj\Debug\ServisniSloj.pdb

@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CalculationFunctions.cs" />
-    <Compile Include="ObradaPodataka.cs" />
+    <Compile Include="GetValues.cs" />
     <Compile Include="ObradaPodatakaZaDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

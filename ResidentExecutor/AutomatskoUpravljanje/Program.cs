@@ -17,14 +17,15 @@ namespace AutomatskoUpravljanje
     class Program
     {
         private static List<Dictionary<Tuple<int, string>, Tuple<DateTime, float>>> listaUbacenihVrednostiWhile;
-
+        private static GetValues obr = new GetValues();
         static void Main(string[] args)
         {
             ObradaPodatakaZaDB obrada = new ObradaPodatakaZaDB();
-            while (true)
-            {
-                obrada.Connect();
+            obrada.Connect();
 
+            while (true)
+            {               
+                Console.WriteLine("Svi kanali otvoreni...");
                 listaUbacenihVrednostiWhile = new List<Dictionary<Tuple<int, string>, Tuple<DateTime, float>>>();
                 List<PodaciIzBaze> podaci = obrada.proxyDanasnji.DanasnjiDatum();
                 listaUbacenihVrednostiWhile.Add(Automatic(podaci));
@@ -41,14 +42,14 @@ namespace AutomatskoUpravljanje
                 obrada.DuplexSample(uBazu);
                 podaci = new List<PodaciIzBaze>();
 
-                Thread.Sleep(20000);
+                Thread.Sleep(10000);
             }
         }
         public static Dictionary<Tuple<int, string>, Tuple<DateTime, float>> Automatic(List<PodaciIzBaze> podaci)
         {
             ICalculationFunctions f = new CalculationFunctions();
-            List<int> listaIDFunkcija = ObradaPodataka.GetIDFunkcija();
-            Dictionary<string, List<float>> vrednostiZaOdredjenoPodrucje = ObradaPodataka.GetVrijednostiZaGeoPodrucje(podaci);
+            List<int> listaIDFunkcija = obr.GetIDFunkcija();
+            Dictionary<string, List<float>> vrednostiZaOdredjenoPodrucje = obr.GetVrijednostiZaGeoPodrucje(podaci);
             Dictionary<Tuple<int, string>, Tuple<DateTime, float>> retVal = new Dictionary<Tuple<int, string>, Tuple<DateTime, float>>();
 
             foreach (var item1 in listaIDFunkcija)

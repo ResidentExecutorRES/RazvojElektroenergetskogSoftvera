@@ -25,18 +25,20 @@ namespace KorisnickiInterfejs
 
         private NetTcpBinding binding = new NetTcpBinding();
         public List<PodaciIzBaze> podaciIzBaze = new List<PodaciIzBaze>();
+        private RadSaXML radSaXML = new RadSaXML();
         public string Datum { get => _datum; set => _datum = value; }
         public string Vreme { get => _vreme; set => _vreme = value; }
         public string GeoPodrucje { get => _geoPodrucje; set => _geoPodrucje = value; }
         public float UnesenaPotrosnja { get => _unesenaPotrosnja; set => _unesenaPotrosnja = value; }
+
         public MainWindow()
         {
             InitializeComponent();
             geoCombo.ItemsSource = GeoPodrucja.geoPodrucja.Values;
-            GeoPodrucja geo = new GeoPodrucja();
+            //GeoPodrucja geo = new GeoPodrucja();
 
             if (!File.Exists(putanjaGeoPodrucja))
-                geo.NapraviXMLGeoPOdrucja();
+                new RadSaXML().NapraviXMLGeoPOdrucja();
         }
         private bool Validate()
         {
@@ -167,37 +169,7 @@ namespace KorisnickiInterfejs
 
             return retVal;
         }
-        public void IzmeniXML()
-        {
-            Random random = new Random();
-            RadSaXML xmlFajl = new RadSaXML();
-            List<FUNKCIJA> lista = xmlFajl.CitajIzXML();
 
-            foreach (var item in lista)
-                item.UKLJUCENO = random.Next(2);
-
-            XmlSerializer serializer = new XmlSerializer(typeof(List<FUNKCIJA>), new XmlRootAttribute("REZIDENTNE_FUNKCIJE"));
-            using (TextWriter writer = new StreamWriter(putanja))
-            {
-                serializer.Serialize(writer, lista);
-            }
-        }
-        public void NapraviXMLFunkcije()
-        {
-            XmlSerializer xml = new XmlSerializer(typeof(List<FUNKCIJA>), new XmlRootAttribute("REZIDENTNE_FUNKCIJE"));
-
-            List<FUNKCIJA> lista = new List<FUNKCIJA>()
-            {
-                new FUNKCIJA() { ID = 1, UKLJUCENO = 1 },
-                new FUNKCIJA() { ID = 2, UKLJUCENO = 1 },
-                new FUNKCIJA() { ID = 3, UKLJUCENO = 0 }
-            };
-
-            using (TextWriter write = new StreamWriter(putanja))
-            {
-                xml.Serialize(write, lista);
-            }
-        }
         private void DuplexSample(string s)
         {
             EndpointAddress address = new EndpointAddress(addressDuplex);
@@ -256,11 +228,10 @@ namespace KorisnickiInterfejs
         }
         private void IzmijeniXML_Click(object sender, RoutedEventArgs e)
         {
-            //NapraviXML();
             if (!File.Exists(putanja))
-                NapraviXMLFunkcije();
+                radSaXML.NapraviXMLFunkcije();
             else
-                IzmeniXML();
+                radSaXML.IzmeniXML();
         }
 
     }

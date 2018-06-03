@@ -36,19 +36,5 @@ namespace Contract
         public string Id { get; set; }
         [DataMember]
         public string Naziv { get; set; }       
-
-        public void NapraviXMLGeoPOdrucja()
-        {
-            List<GeoPodrucja> lista = new List<GeoPodrucja>();
-            XmlSerializer xml = new XmlSerializer(typeof(List<GeoPodrucja>), new XmlRootAttribute("GEOGRAFSKA_PODRUCJA"));
-            
-            foreach (var item in geoPodrucja)
-                lista.Add(new GeoPodrucja(item.Key, item.Value));      
-
-            using (TextWriter write = new StreamWriter("../../../geo_podrucja.xml"))
-            {
-                xml.Serialize(write, lista);
-            }
-        }
     }
 }

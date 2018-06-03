@@ -5,37 +5,45 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KorisnickiInterfejs"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
-        ResizeMode="NoResize">
+        Icon="images.jpg"
+        Title="Unos" Height="450" Width="800"
+        ResizeMode="NoResize" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}">
     <Grid>
-        <Label Name="naslovLabel" Content=" UNOS POTROSNJE ZA ODREĐENO PODRUČJE" Margin="10,0,10,352.916" Cursor="None" FontSize="36" Width="774"/>
+        <Grid.Background>
+            <ImageBrush ImageSource="bih.jpg"/>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="359*"/>
+            <ColumnDefinition Width="38*"/>
+        </Grid.ColumnDefinitions>
+        <Label Name="naslovLabel" Foreground="White" Content=" UNOS POTROSNJE ZA ODREĐENO PODRUČJE" Margin="10,0,10,352.916" Cursor="None" FontSize="34" Width="774" FontWeight="Bold" Grid.ColumnSpan="2"/>
 
-        <Label Name="geoLabel" Content="Geografsko podrucje:" Margin="17,77.8,628,305" Height="38"/>
-        <Label Name="geoGreska" Margin="422.4,77,155,305" Height="38.8" Width="225"/>
+        <Label Name="geoLabel" Foreground="White" Content="Geografsko podrucje:" Margin="17,77.8,526.557,305" Height="38" FontSize="14" FontWeight="Bold" Cursor="None" Background="{x:Null}"/>
+        <Label Name="geoGreska" Margin="422.4,77.8,70.399,304.2" Height="38.8" Width="225"/>
 
         <!--<Label Name="idLabel" Content="ID geografskog podrucja:" Margin="10,112,485,270"/>-->
-        <Label Name="potrosnjaLabel" Content="Potrosnja:" Margin="17,132.4,635,252.8" Height="38"/>
-        <Label Name="potrosnjaGreska" Margin="231,129.2,338,253.6" Width="225" Height="38"/>
+        <Label Name="potrosnjaLabel" Foreground="White" Content="Potrosnja:" Margin="17,132.4,558.799,250.4" Height="38" FontSize="14" FontWeight="Bold"/>
+        <Label Name="potrosnjaGreska" Margin="236,129.2,256.799,253.6" Width="225" Height="38"/>
 
-        <Label Name="datumLabel" Content="Datum:" Margin="17,189.05,648.6,197.75" Height="38"/>
-        <Label Name="datumGreska" Margin="337.2,190.05,231.8,189.95" Width="225" Height="38"/>
+        <Label Name="datumLabel" Foreground="White" Content="Datum:" Margin="17,189.05,572.399,193.75" Height="38" FontSize="14" FontWeight="Bold"/>
+        <Label Name="datumGreska" Margin="342.2,190.05,150.599,192.75" Width="225" Height="38"/>
 
-        <Label Name="vremeLabel" Content="Vreme:" Margin="17,240.4,648.6,142.4" Height="38"/>
-        <Label Name="vremeGreska" Margin="337.2,242.4,231.8,140.4" RenderTransformOrigin="0.054,0.583" Width="225" Height="38"/>
+        <Label Name="vremeLabel" Foreground="White" Content="Vreme:" Margin="17,240.4,572.399,142.4" Height="38" FontSize="14" FontWeight="Bold"/>
+        <Label Name="vremeGreska" Margin="342.2,240.4,150.599,142.4" RenderTransformOrigin="0.054,0.583" Width="225" Height="38"/>
 
-        <ComboBox Name="geoCombo" Margin="178,77,390.6,305" Width="225"/>
-        <TextBox Name="potrosnjaTextBox" Margin="178,129.2,568,253.6" Height="38" Width="48"/>
+        <ComboBox Name="geoCombo" Foreground="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" Margin="196.443,77.8,282.156,304.2" FontSize="13" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+        <TextBox Name="potrosnjaTextBox" Margin="196.443,129.2,468.356,253.6" Height="38" FontSize="13" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}"/>
 
-        <DatePicker x:Name="datumPicker" Text="Odaberi datum" Margin="178,190.05,461.8,196.75" Height="38"/>
+        <DatePicker x:Name="datumPicker"  Text="Odaberi datum" Margin="196.443,191.13,365.557,191.67" Height="38" Width="156" FontSize="13" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}"/>
 
-        <TextBox Name="vremeTextBox" Margin="178,240,567.6,142" Width="48" Height="38"/>
-        <TextBox x:Name="vremeTextBox2" Margin="231.2,240.4,514.8,142.4" Width="48" Height="38" />
-        <TextBox x:Name="vremeTextBox3" Margin="284.2,240.4,461.8,142.4" Width="48" Height="38"/>
+        <TextBox Name="vremeTextBox" Margin="196.443,240.4,468.557,142.4" Width="53" Height="38" FontSize="13" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" RenderTransformOrigin="0.117,0.499" Foreground="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}"/>
+        <TextBox x:Name="vremeTextBox2" Margin="249.443,240.4,415.557,142.4" Width="53" Height="38" FontSize="13" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" />
+        <TextBox x:Name="vremeTextBox3" Margin="302.443,240.4,362.557,142.4" Width="53" Height="38" FontSize="13" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}"/>
 
-        <Button Name="okButton" Content="OK"  Margin="17,357,619.6,21" Click="OkButton_Click" />
-        <Button Name="closeButton" Content="Close" Click="CloseButton_Click" Margin="598,357,35.6,21"/>
-        <Button Name="izmijeniXML" Content="Izmijeni XML fajl" Click="IzmijeniXML_Click" Margin="310,357,323.6,21"/>
-        <Label Name="izmeniLabel" Content="XML file sa ukljucenim funkcijama je izmenjen" Visibility="Hidden"/>
+        <Button Name="okButton" Content="OK"  Margin="17,357,543.399,21" Click="OkButton_Click" FontSize="14" FontWeight="Bold" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" />
+        <Button Name="closeButton" Content="Close" Click="CloseButton_Click" Margin="598,357,35.6,21" Grid.ColumnSpan="2" FontSize="14" FontWeight="Bold" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}"/>
+        <Button Name="izmijeniXML" Content="Izmijeni XML fajl" Click="IzmijeniXML_Click" Margin="310,357,247.399,21" FontSize="14" FontWeight="Bold" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}"/>
+        <Label Name="izmeniLabel" Content="XML file sa ukljucenim funkcijama je izmenjen" Visibility="Hidden" Grid.ColumnSpan="2"/>
 
     </Grid>
 </Window>

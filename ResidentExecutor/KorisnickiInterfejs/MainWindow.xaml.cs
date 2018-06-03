@@ -48,7 +48,7 @@ namespace KorisnickiInterfejs
             {
                 retVal = false;
                 geoGreska.Content = "Izaberite jednu od ponudjenih vrednosti";
-                geoGreska.BorderThickness = new Thickness(0);
+                geoGreska.BorderThickness = new Thickness(1);
                 geoGreska.BorderBrush = Brushes.Red;
             }
             else
@@ -64,7 +64,7 @@ namespace KorisnickiInterfejs
             {
                 retVal = false;
                 potrosnjaGreska.Content = "Polje ne sme biti prazno.";
-                potrosnjaGreska.BorderThickness = new Thickness(0);
+                potrosnjaGreska.BorderThickness = new Thickness(1);
                 potrosnjaGreska.BorderBrush = Brushes.Red;
             }
             else if (float.TryParse(potrosnjaTextBox.Text, out float potrosnja))
@@ -73,7 +73,7 @@ namespace KorisnickiInterfejs
                 {
                     retVal = false;
                     potrosnjaGreska.Content = "Potrosnja ne sme biti negativna vrednost.";
-                    potrosnjaGreska.BorderThickness = new Thickness(0);
+                    potrosnjaGreska.BorderThickness = new Thickness(1);
                     potrosnjaGreska.BorderBrush = Brushes.Red;
 
                 }
@@ -88,7 +88,7 @@ namespace KorisnickiInterfejs
             {
                 retVal = false;
                 potrosnjaGreska.Content = "Potrosnja mora biti broj";
-                potrosnjaGreska.BorderThickness = new Thickness(0);
+                potrosnjaGreska.BorderThickness = new Thickness(1);
                 potrosnjaGreska.BorderBrush = Brushes.Red;
             }
             #endregion
@@ -98,7 +98,7 @@ namespace KorisnickiInterfejs
             {
                 retVal = false;
                 vremeGreska.Content = "Sva polja za vreme morate uneti. [hh:mm:ss]";
-                vremeGreska.BorderThickness = new Thickness(0);
+                vremeGreska.BorderThickness = new Thickness(1);
                 vremeGreska.BorderBrush = Brushes.Red;
             }
             else if (int.TryParse(vremeTextBox.Text, out int sati) &&
@@ -109,7 +109,7 @@ namespace KorisnickiInterfejs
                 {
                     retVal = false;
                     vremeGreska.Content = "Unesite validne vrednosti za vreme. [hh:mm:ss]";
-                    vremeGreska.BorderThickness = new Thickness(0);
+                    vremeGreska.BorderThickness = new Thickness(1);
                     vremeGreska.BorderBrush = Brushes.Red;
                 }
                 else
@@ -126,7 +126,7 @@ namespace KorisnickiInterfejs
             {
                 retVal = false;
                 vremeGreska.Content = "Niste uneli validne vrednosti za vreme";
-                vremeGreska.BorderThickness = new Thickness(0);
+                vremeGreska.BorderThickness = new Thickness(1);
                 vremeGreska.BorderBrush = Brushes.Red;
             }
 

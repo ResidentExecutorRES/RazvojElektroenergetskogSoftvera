@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Implementation\GetSelectQuery.cs" />
     <Compile Include="Implementation\Connect.cs" />
     <Compile Include="Implementation\InsertCaluculationFunction.cs" />
     <Compile Include="Implementation\Konekcija.cs" />

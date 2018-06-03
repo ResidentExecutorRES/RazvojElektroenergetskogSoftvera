@@ -1,4 +1,5 @@
 ﻿using Contract;
+using Contract.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
@@ -31,8 +32,36 @@ namespace ServisniSloj
             proxyDanasnji = factoryDanasnji.CreateChannel();
             proxyProveriPreInserta = factoryPreInserta.CreateChannel();
         }
+
         public List<string> InsertIntoTable(List<Dictionary<Tuple<int, string>, Tuple<DateTime, float>>> listaUbacenihVrednostiWhile)
         {
+            #region CatchExceptions
+
+            if (listaUbacenihVrednostiWhile == null)
+                throw new ArgumentNullException();
+
+            foreach (var item in listaUbacenihVrednostiWhile)
+            {
+                if (item == null)
+                    throw new ArgumentNullException();
+                foreach (var itemDict in item)
+                {
+                    if (itemDict.Value == null || itemDict.Key == null)
+                        throw new ArgumentNullException();
+
+                    if (itemDict.Key.Item1 < 1 || itemDict.Key.Item1 > 3)
+                        throw new ArgumentOutOfRangeException();
+                    if (String.IsNullOrEmpty(itemDict.Key.Item2))
+                        throw new ArgumentNullException();
+
+                    if (itemDict.Value.Item1 > DateTime.Now)
+                        throw new VremeException();
+                    if (itemDict.Value.Item2 >= float.MaxValue || itemDict.Value.Item2 < 0)
+                        throw new ArgumentOutOfRangeException();
+                }
+            }
+            #endregion
+
             List<string> retVal = new List<string>();
             List<PodaciIzBaze> traziDatum = proxyDanasnji.DanasnjiDatum().OrderByDescending(o => o.ID).ThenBy(n => n.Vreme).ToList();
             List<PodaciIzBaze> traziNajnovijiDatum = SamoPoJednoPodrucje(traziDatum);

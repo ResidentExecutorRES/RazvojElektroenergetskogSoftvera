@@ -10,33 +10,50 @@ namespace Contract
 {
     public class RadSaXML : IXml
     {
-        private string putanja = @"../../../rezidentne_funkcije.xml";
-        private string putanjaGeoPodrucja = "../../../geo_podrucja.xml";
+        PathHelper path = new PathHelper();
 
         public List<FUNKCIJA> CitajIzXML()
         {
-            List<FUNKCIJA> retVal = new List<FUNKCIJA>();
-            XmlSerializer desrializer = new XmlSerializer(typeof(List<FUNKCIJA>), new XmlRootAttribute("REZIDENTNE_FUNKCIJE"));
-
-            using (TextReader reader = new StreamReader(putanja))
+            try
             {
-                object obj = desrializer.Deserialize(reader);
-                retVal = (List<FUNKCIJA>)obj;
-            }
+                List<FUNKCIJA> retVal = new List<FUNKCIJA>();
+                XmlSerializer desrializer = new XmlSerializer(typeof(List<FUNKCIJA>), new XmlRootAttribute("REZIDENTNE_FUNKCIJE"));
 
-            return retVal;
+                using (TextReader reader = new StreamReader(path.GetPathRezidentneFunkcije()))
+                {
+                    object obj = desrializer.Deserialize(reader);
+                    retVal = (List<FUNKCIJA>)obj;
+                }
+
+                return retVal;
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
+            
         }
         public List<GeoPodrucja> CitajIzXMLGeoPodrucja()
         {
-            List<GeoPodrucja> retVal = new List<GeoPodrucja>();
-            XmlSerializer desrializer = new XmlSerializer(typeof(List<GeoPodrucja>), new XmlRootAttribute("GEOGRAFSKA_PODRUCJA"));
-
-            using (TextReader reader = new StreamReader(putanjaGeoPodrucja))
+            try
             {
-                object obj = desrializer.Deserialize(reader);
-                retVal = (List<GeoPodrucja>)obj;
+                List<GeoPodrucja> retVal = new List<GeoPodrucja>();
+                XmlSerializer desrializer = new XmlSerializer(typeof(List<GeoPodrucja>), new XmlRootAttribute("GEOGRAFSKA_PODRUCJA"));
+
+                using (TextReader reader = new StreamReader(path.GetPathGeoPodrucja()))
+                {
+                    object obj = desrializer.Deserialize(reader);
+                    retVal = (List<GeoPodrucja>)obj;
+                }
+                return retVal;
             }
-            return retVal;
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+            }
+
         }
 
         public void NapraviXMLFunkcije()
@@ -50,7 +67,7 @@ namespace Contract
                 new FUNKCIJA() { ID = 3, UKLJUCENO = 0 }
             };
 
-            using (TextWriter write = new StreamWriter(putanja))
+            using (TextWriter write = new StreamWriter(path.GetPathRezidentneFunkcije()))
             {
                 xml.Serialize(write, lista);
             }
@@ -65,7 +82,7 @@ namespace Contract
                 item.UKLJUCENO = random.Next(2);
 
             XmlSerializer serializer = new XmlSerializer(typeof(List<FUNKCIJA>), new XmlRootAttribute("REZIDENTNE_FUNKCIJE"));
-            using (TextWriter writer = new StreamWriter(putanja))
+            using (TextWriter writer = new StreamWriter(path.GetPathRezidentneFunkcije()))
             {
                 serializer.Serialize(writer, lista);
             }
@@ -79,7 +96,7 @@ namespace Contract
             foreach (var item in GeoPodrucja.geoPodrucja)
                 lista.Add(new GeoPodrucja(item.Key, item.Value));
 
-            using (TextWriter write = new StreamWriter("../../../geo_podrucja.xml"))
+            using (TextWriter write = new StreamWriter(path.GetPathGeoPodrucja()))
             {
                 xml.Serialize(write, lista);
             }

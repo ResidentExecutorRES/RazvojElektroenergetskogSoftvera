@@ -12,6 +12,9 @@ namespace PristupDB
     {       
         public void PosaljiInsert(List<string> insertInto)
         {
+            if (insertInto == null)
+                throw new ArgumentNullException();
+
             foreach (var item in insertInto)
             {
                 using (SqlCommands.cmd = new SqlCommand(item, SqlCommands.conn))

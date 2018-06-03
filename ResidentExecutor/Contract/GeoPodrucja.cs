@@ -28,6 +28,9 @@ namespace Contract
         public GeoPodrucja() { }
         public GeoPodrucja(string id, string naziv)
         {
+            if (String.IsNullOrEmpty(id) || String.IsNullOrEmpty(naziv))
+                throw new ArgumentNullException();
+
             Id = id;
             Naziv = naziv;
         }        

@@ -17,7 +17,8 @@ namespace AutomatskoUpravljanje
 
             while (true)
             {               
-                Console.WriteLine("Svi kanali otvoreni...");
+                
+                Console.WriteLine("--------------------------------------------------------------------------------");
                 listaUbacenihVrednostiWhile = new List<Dictionary<Tuple<int, string>, Tuple<DateTime, float>>>();
                 List<PodaciIzBaze> podaci = obrada.proxyDanasnji.DanasnjiDatum();
                 listaUbacenihVrednostiWhile.Add(Automatic(podaci));
@@ -33,14 +34,19 @@ namespace AutomatskoUpravljanje
                 List<string> uBazu = obrada.InsertIntoTable(listaUbacenihVrednostiWhile);
                 obrada.DuplexSample(uBazu);
                 podaci = new List<PodaciIzBaze>();
-
+                Console.WriteLine();
                 Thread.Sleep(10000);
             }
         }
         public static Dictionary<Tuple<int, string>, Tuple<DateTime, float>> Automatic(List<PodaciIzBaze> podaci)
         {
+            if (podaci == null)
+                throw new ArgumentNullException();
+
             ICalculationFunctions f = new CalculationFunctions();
             List<int> listaIDFunkcija = obr.GetIDFunkcija();
+
+            
             Dictionary<string, List<float>> vrednostiZaOdredjenoPodrucje = obr.GetVrijednostiZaGeoPodrucje(podaci);
             Dictionary<Tuple<int, string>, Tuple<DateTime, float>> retVal = new Dictionary<Tuple<int, string>, Tuple<DateTime, float>>();
 

@@ -1,4 +1,5 @@
 ﻿using Contract;
+using Contract.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -10,9 +11,7 @@ namespace PristupDB
 {
     public class ProveriPreInsert : IProveriPreInsert
     {
-        private string selectUpit1 = "SELECT * FROM FunkcijaAverage";
-        private string selectUpit2 = "SELECT * FROM FunkcijaMaximum";
-        private string selectUpit3 = "SELECT * FROM FunkcijaMinimum";
+        private IGetSelectQuery getQuery = new GetSelectQuery();
 
         public Dictionary<string, List<CalculationTable>> PosaljiInsert()
         {
@@ -21,8 +20,8 @@ namespace PristupDB
 
             #region IscitavanjeIzTabeleFunkcijaAverage
             SqlCommands.conn.Open();
-            SqlCommand cmd = new SqlCommand(selectUpit1, SqlCommands.conn);
-            SqlDataReader reader = cmd.ExecuteReader();
+            SqlCommands.cmd = new SqlCommand(getQuery.GetFromFunkcijaAverage(), SqlCommands.conn);
+            SqlDataReader reader = SqlCommands.cmd.ExecuteReader();
 
             while (reader.Read())
                 retVal2.Add(new CalculationTable((string)reader.GetSqlString(0),
@@ -36,8 +35,8 @@ namespace PristupDB
             #endregion
 
             #region  IscitavanjeIzTabeleFunkcijaMaximum
-            cmd = new SqlCommand(selectUpit2, SqlCommands.conn);
-            reader = cmd.ExecuteReader();
+            SqlCommands.cmd = new SqlCommand(getQuery.GetFromFunkcijaMaximum(), SqlCommands.conn);
+            reader = SqlCommands.cmd.ExecuteReader();
 
             while (reader.Read())
                 retVal2.Add(new CalculationTable((string)reader.GetSqlString(0),
@@ -50,8 +49,8 @@ namespace PristupDB
             #endregion
 
             #region  IscitavanjeIzTabeleFunkcijaMinimum
-            cmd = new SqlCommand(selectUpit3, SqlCommands.conn);
-            reader = cmd.ExecuteReader();
+            SqlCommands.cmd = new SqlCommand(getQuery.GetFromFunkcijaMinimum(), SqlCommands.conn);
+            reader = SqlCommands.cmd.ExecuteReader();
             while (reader.Read())
                 retVal2.Add(new CalculationTable((string)reader.GetSqlString(0),
                                                 reader.GetSqlDateTime(1),

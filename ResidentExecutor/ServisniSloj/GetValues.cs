@@ -12,6 +12,9 @@ namespace ServisniSloj
     {
         public Dictionary<string, List<float>> GetVrijednostiZaGeoPodrucje(List<PodaciIzBaze> podaci)
         {
+            if (podaci == null)
+                throw new ArgumentNullException();
+
             List<float> ret2 = new List<float>();
             Dictionary<string, List<float>> ret = new Dictionary<string, List<float>>();
 
@@ -33,6 +36,10 @@ namespace ServisniSloj
             List<int> listaID = new List<int>();
             foreach (var item in (new RadSaXML().CitajIzXML()))
             {
+                if (item.ID <= 1 || item.ID >= 3)
+                    throw new InvalidOperationException("File 'rezidentne_funkcije.xml' nije vratio validne vrednosi za ID");
+                if(item.UKLJUCENO < 0 || item.UKLJUCENO > 1)
+                    throw new InvalidOperationException("File 'rezidentne_funkcije.xml' nije vratio validne vrednosi za UKLJUCENO");
                 if (item.UKLJUCENO == 1)
                     listaID.Add(item.ID);
             }

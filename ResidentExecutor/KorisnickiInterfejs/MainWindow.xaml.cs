@@ -1,4 +1,5 @@
 ﻿using Contract;
+using Contract.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
@@ -17,8 +18,7 @@ namespace KorisnickiInterfejs
         private string _geoPodrucje;
         private float _unesenaPotrosnja;
 
-        private string putanja = @"../../../rezidentne_funkcije.xml";
-        private string putanjaGeoPodrucja = "../../../geo_podrucja.xml";
+        private PathHelper path = new PathHelper();
         private string address = "net.tcp://localhost:10100/IConnect";
         private string addressDuplex = "net.tcp://localhost:10102/IUpisi";
 
@@ -34,9 +34,8 @@ namespace KorisnickiInterfejs
         {
             InitializeComponent();
             geoCombo.ItemsSource = GeoPodrucja.geoPodrucja.Values;
-            //GeoPodrucja geo = new GeoPodrucja();
 
-            if (!File.Exists(putanjaGeoPodrucja))
+            if (!File.Exists(path.GetPathGeoPodrucja()))
                 new RadSaXML().NapraviXMLGeoPOdrucja();
         }
         private bool Validate()
@@ -227,7 +226,7 @@ namespace KorisnickiInterfejs
         }
         private void IzmijeniXML_Click(object sender, RoutedEventArgs e)
         {
-            if (!File.Exists(putanja))
+            if (!File.Exists(path.GetPathRezidentneFunkcije()))
                 radSaXML.NapraviXMLFunkcije();
             else
                 radSaXML.IzmeniXML();

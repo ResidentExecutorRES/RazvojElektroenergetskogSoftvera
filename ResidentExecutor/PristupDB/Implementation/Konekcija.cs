@@ -1,4 +1,5 @@
 ﻿using Contract;
+using Contract.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -11,12 +12,12 @@ namespace PristupDB
 {   
     public class Konekcija : IDanasnjiDatum
     {
-        private string upit = "SELECT * FROM UneseneVrednosti WHERE CONVERT(DATE, VremeMerenja) = CONVERT(DATE, GETDATE())";
         public  List<PodaciIzBaze> DanasnjiDatum()
-        {          
+        {
+            IGetSelectQuery selectQuery = new GetSelectQuery();
             SqlCommands.conn.Open();          
-            SqlCommand cmd = new SqlCommand(upit, SqlCommands.conn);
-            SqlDataReader reader = cmd.ExecuteReader();
+            SqlCommands.cmd = new SqlCommand(selectQuery.GetFromUneseneVrednostiDate(), SqlCommands.conn);
+            SqlDataReader reader = SqlCommands.cmd.ExecuteReader();
             List<PodaciIzBaze> retVal = new List<PodaciIzBaze>();
 
             while (reader.Read())

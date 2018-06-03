@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
+using Contract.Exceptions;
 
 namespace Contract
 {
@@ -13,6 +14,13 @@ namespace Contract
     {
         public CalculationTable(string id, SqlDateTime vremeProracuna, double vrednost, SqlDateTime poslednjeVreme)
         {
+            if (String.IsNullOrEmpty(id))
+                throw new ArgumentNullException();
+            if (vrednost < 0 || vrednost >= Double.MaxValue)
+                throw new ArgumentOutOfRangeException();
+            if (vremeProracuna >(SqlDateTime)DateTime.Now || poslednjeVreme > (SqlDateTime)DateTime.Now)
+                throw new VremeException();
+            
             Id = id;
             VremeProracuna = vremeProracuna;
             Vrednost = vrednost;
@@ -27,10 +35,6 @@ namespace Contract
         public double Vrednost { get; set; }
         [DataMember]
         public SqlDateTime PoslednjeVreme { get; set; }
-
-        public override string ToString()
-        {
-            return "ID: " + Id + " VremeProracuna: " + VremeProracuna + " Vrednost: " + Vrednost + " PoslednjeVreme: " + PoslednjeVreme;
-        }
+    
     }
 }

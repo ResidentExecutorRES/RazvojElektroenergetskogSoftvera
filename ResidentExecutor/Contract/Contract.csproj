@@ -42,6 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exceptions\VremeException.cs" />
+    <Compile Include="Interfaces\IGetSelectQuery.cs" />
     <Compile Include="Models\CalculationTable.cs" />
     <Compile Include="Models\FUNKCIJA.cs" />
     <Compile Include="GeoPodrucja.cs" />
@@ -50,6 +52,7 @@
     <Compile Include="Interfaces\ISimplexIntreface.cs" />
     <Compile Include="Interfaces\IDuplexInterface.cs" />
     <Compile Include="Models\PodaciIzBaze.cs" />
+    <Compile Include="PathHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RadSaXML.cs" />
   </ItemGroup>

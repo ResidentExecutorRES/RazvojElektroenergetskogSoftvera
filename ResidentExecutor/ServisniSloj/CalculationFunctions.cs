@@ -11,20 +11,40 @@ namespace ServisniSloj
     {
         public float Average(List<float> listaPotrosnji)
         {
-            if (listaPotrosnji.Count == 0)
-                return 0;
+            if (listaPotrosnji == null)
+                throw new ArgumentNullException();
+
+            foreach (var item in listaPotrosnji)
+            {
+                if (item >= float.MaxValue)
+                    throw new ArgumentOutOfRangeException();
+            }
             return listaPotrosnji.Average();
         }
         public float Maximum(List<float> listaPotrosnji)
         {
-            if (listaPotrosnji.Count == 0)
-                return 0;
+            if (listaPotrosnji == null)
+                throw new ArgumentNullException();
+
+            foreach (var item in listaPotrosnji)
+            {
+                if (item >= float.MaxValue)
+                    throw new ArgumentOutOfRangeException();
+            }
+
             return listaPotrosnji.Max();
         }
         public float Minimum(List<float> listaPotrosnji)
         {
-            if (listaPotrosnji.Count == 0)
-                return 0;
+            if (listaPotrosnji == null)
+                throw new ArgumentNullException();
+
+            foreach (var item in listaPotrosnji)
+            {
+                if (item >= float.MaxValue)
+                    throw new ArgumentOutOfRangeException();
+            }
+
             return listaPotrosnji.Min();
         }
     }

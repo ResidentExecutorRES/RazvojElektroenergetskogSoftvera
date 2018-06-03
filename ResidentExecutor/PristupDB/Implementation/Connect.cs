@@ -1,4 +1,5 @@
 ﻿using Contract;
+using Contract.Interfaces;
 using KorisnickiInterfejs;
 using System;
 using System.Collections.Generic;
@@ -11,13 +12,13 @@ namespace PristupDB
 {
     public class Connect : IConnect
     {
-        private string selectUpit = "SELECT * FROM UneseneVrednosti";
         public List<PodaciIzBaze> VratiRedove()
         {
+            IGetSelectQuery selectQuery = new GetSelectQuery();
             SqlCommands.conn.Open();
-            List<PodaciIzBaze> podaci = new List<PodaciIzBaze>();    
-            SqlCommand cmd = new SqlCommand(selectUpit, SqlCommands.conn);
-            SqlDataReader reader = cmd.ExecuteReader();
+            List<PodaciIzBaze> podaci = new List<PodaciIzBaze>();
+            SqlCommands.cmd = new SqlCommand(selectQuery.GetFromUneseneVrednosti(), SqlCommands.conn);
+            SqlDataReader reader = SqlCommands.cmd.ExecuteReader();
 
             while (reader.Read())
                 podaci.Add(new PodaciIzBaze((string)reader.GetSqlString(0), 

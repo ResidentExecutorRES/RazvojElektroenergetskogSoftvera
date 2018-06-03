@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Contract.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
 using System.Linq;
@@ -13,6 +14,13 @@ namespace Contract
     {
         public PodaciIzBaze(string iD, SqlDateTime vreme, float vrednost)
         {
+            if(String.IsNullOrEmpty(iD))
+                throw new ArgumentNullException();
+            if(vrednost < 0 || vrednost >= float.MaxValue)
+                throw new ArgumentOutOfRangeException();
+            if (vreme > (SqlDateTime)DateTime.Now)
+                throw new VremeException();
+
             ID = iD;
             Vreme = vreme;
             Vrednost = vrednost;

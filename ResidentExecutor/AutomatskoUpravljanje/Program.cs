@@ -1,4 +1,5 @@
 ﻿using Contract;
+using Contract.Exceptions;
 using ServisniSloj;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ namespace AutomatskoUpravljanje
         static void Main(string[] args)
         {
             ObradaPodatakaZaDB obrada = new ObradaPodatakaZaDB();
+            Automatik a = new Automatik();
             obrada.Connect();
 
             while (true)
@@ -21,7 +23,7 @@ namespace AutomatskoUpravljanje
                 Console.WriteLine("--------------------------------------------------------------------------------");
                 listaUbacenihVrednostiWhile = new List<Dictionary<Tuple<int, string>, Tuple<DateTime, float>>>();
                 List<PodaciIzBaze> podaci = obrada.proxyDanasnji.DanasnjiDatum();
-                listaUbacenihVrednostiWhile.Add(Automatic(podaci));
+                listaUbacenihVrednostiWhile.Add(a.Automatic(podaci));
 
                 foreach (var item in listaUbacenihVrednostiWhile)
                 {
@@ -38,32 +40,43 @@ namespace AutomatskoUpravljanje
                 Thread.Sleep(10000);
             }
         }
-        public static Dictionary<Tuple<int, string>, Tuple<DateTime, float>> Automatic(List<PodaciIzBaze> podaci)
-        {
-            if (podaci == null)
-                throw new ArgumentNullException();
+        //public static Dictionary<Tuple<int, string>, Tuple<DateTime, float>> Automatic(List<PodaciIzBaze> podaci)
+        //{
+        //    if (podaci == null)
+        //        throw new ArgumentNullException();
 
-            ICalculationFunctions f = new CalculationFunctions();
-            List<int> listaIDFunkcija = obr.GetIDFunkcija();
+        //    foreach (var item in podaci)
+        //    {
+        //        if (String.IsNullOrEmpty(item.ID))
+        //            throw new ArgumentNullException();
+        //        if (item.Vrednost < 0 || item.Vrednost > float.MaxValue)
+        //            throw new ArgumentOutOfRangeException();
+        //        if (item.Vreme > DateTime.Now)
+        //            throw new VremeException();
+        //    }
 
+        //    ICalculationFunctions f = new CalculationFunctions();
+        //    List<int> listaIDFunkcija = obr.GetIDFunkcija();            
             
-            Dictionary<string, List<float>> vrednostiZaOdredjenoPodrucje = obr.GetVrijednostiZaGeoPodrucje(podaci);
-            Dictionary<Tuple<int, string>, Tuple<DateTime, float>> retVal = new Dictionary<Tuple<int, string>, Tuple<DateTime, float>>();
+        //    Dictionary<string, List<float>> vrednostiZaOdredjenoPodrucje = obr.GetVrijednostiZaGeoPodrucje(podaci);
+        //    Dictionary<Tuple<int, string>, Tuple<DateTime, float>> retVal = new Dictionary<Tuple<int, string>, Tuple<DateTime, float>>();
 
-            foreach (var item1 in listaIDFunkcija)
-            {
-                foreach (var item2 in vrednostiZaOdredjenoPodrucje)
-                {
-                    if (item1 == 1)
-                        retVal.Add(new Tuple<int, string>(1, item2.Key), new Tuple<DateTime, float>(DateTime.Now, f.Average(item2.Value)));
-                    else if (item1 == 2)
-                        retVal.Add(new Tuple<int, string>(2, item2.Key), new Tuple<DateTime, float>(DateTime.Now, f.Maximum(item2.Value)));
-                    else
-                        retVal.Add(new Tuple<int, string>(3, item2.Key), new Tuple<DateTime, float>(DateTime.Now, f.Minimum(item2.Value)));
-                }
-            }
+        //    foreach (var item1 in listaIDFunkcija)
+        //    {
+        //        foreach (var item2 in vrednostiZaOdredjenoPodrucje)
+        //        {
+        //            if (item1 == 1)
+        //                retVal.Add(new Tuple<int, string>(1, item2.Key), new Tuple<DateTime, float>(DateTime.Now, f.Average(item2.Value)));
+        //            else if (item1 == 2)
+        //                retVal.Add(new Tuple<int, string>(2, item2.Key), new Tuple<DateTime, float>(DateTime.Now, f.Maximum(item2.Value)));
+        //            else if (item1 == 3)
+        //                retVal.Add(new Tuple<int, string>(3, item2.Key), new Tuple<DateTime, float>(DateTime.Now, f.Minimum(item2.Value)));
+        //            else
+        //                throw new FormatException();
+        //        }
+        //    }
 
-            return retVal;
-        }
+        //    return retVal;
+        //}
     }
 }

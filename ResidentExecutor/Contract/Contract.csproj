@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Exceptions\VremeException.cs" />
+    <Compile Include="GetValuesFromUI.cs" />
     <Compile Include="Interfaces\IGetSelectQuery.cs" />
     <Compile Include="Models\CalculationTable.cs" />
     <Compile Include="Models\FUNKCIJA.cs" />

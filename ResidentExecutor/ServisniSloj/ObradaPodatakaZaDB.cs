@@ -19,12 +19,12 @@ namespace ServisniSloj
         public IDanasnjiDatum proxyDanasnji = null;
         public IProveriPreInsert proxyProveriPreInserta = null;
 
+        private string addressDanasnjiDatum = "net.tcp://localhost:10103/IDanasnjiDatum";
+        private string addressInsert = "net.tcp://localhost:10105/IProveriPreInsert";
+
         public void Connect()
         {
             NetTcpBinding binding = new NetTcpBinding();
-
-            string addressDanasnjiDatum = "net.tcp://localhost:10103/IDanasnjiDatum";
-            string addressInsert = "net.tcp://localhost:10105/IProveriPreInsert";
 
             factoryDanasnji = new ChannelFactory<IDanasnjiDatum>(binding, new EndpointAddress(addressDanasnjiDatum));
             factoryPreInserta = new ChannelFactory<IProveriPreInsert>(binding, new EndpointAddress(addressInsert));
@@ -104,8 +104,18 @@ namespace ServisniSloj
 
         public bool ProveriZaIf(string id, SqlDateTime vreme, int i)
         {
+            if (String.IsNullOrEmpty(id))
+                throw new ArgumentNullException();
+
+            if (vreme > DateTime.Now)
+                throw new VremeException();
+
+            if (i < 1 || i > 3)
+                throw new ArgumentOutOfRangeException();
+
             bool retVal = true;
             string spojeno = id + vreme.ToString();
+
             Dictionary<string, List<CalculationTable>> proxyLista = proxyProveriPreInserta.PosaljiInsert();
 
             foreach (var item in proxyLista)
@@ -135,8 +145,25 @@ namespace ServisniSloj
 
         public List<PodaciIzBaze> SamoPoJednoPodrucje(List<PodaciIzBaze> listaDatuma)
         {
+            if (listaDatuma == null)
+                throw new ArgumentNullException();
+
+            if (listaDatuma.Count == 0)
+                return new List<PodaciIzBaze>();
+
+            foreach (var item in listaDatuma)
+            {
+                if (String.IsNullOrEmpty(item.ID))
+                    throw new ArgumentNullException();
+                if (item.Vrednost < 0 || item.Vrednost >= float.MaxValue)
+                    throw  new ArgumentOutOfRangeException();
+                if (item.Vreme > DateTime.Now)
+                    throw new VremeException();
+            }
+
             List<PodaciIzBaze> retVal = listaDatuma;
             int i = 0;
+
             while (i < retVal.Count - 1)
             {
                 if (retVal[i].ID == retVal[i + 1].ID)
@@ -150,6 +177,9 @@ namespace ServisniSloj
 
         public void DuplexSample(List<string> lista)
         {
+            if (lista == null)
+                throw new ArgumentNullException();
+
             NetTcpBinding binding = new NetTcpBinding();
             EndpointAddress address = new EndpointAddress("net.tcp://localhost:10104/IInsertCulculationFunction");
 
@@ -166,6 +196,8 @@ namespace ServisniSloj
     {
         public void OnCallback(string message)
         {
+            if (String.IsNullOrEmpty(message))
+                throw new ArgumentNullException();
             Console.WriteLine("Message from server, {0}.", message);
         }
     }

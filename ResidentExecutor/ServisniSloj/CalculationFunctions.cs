@@ -14,6 +14,9 @@ namespace ServisniSloj
             if (listaPotrosnji == null)
                 throw new ArgumentNullException();
 
+            if (listaPotrosnji.Count == 0)
+                return 0;
+
             foreach (var item in listaPotrosnji)
             {
                 if (item >= float.MaxValue)
@@ -25,6 +28,9 @@ namespace ServisniSloj
         {
             if (listaPotrosnji == null)
                 throw new ArgumentNullException();
+
+            if (listaPotrosnji.Count == 0)
+                return 0;
 
             foreach (var item in listaPotrosnji)
             {
@@ -38,6 +44,9 @@ namespace ServisniSloj
         {
             if (listaPotrosnji == null)
                 throw new ArgumentNullException();
+
+            if (listaPotrosnji.Count == 0)
+                return 0;
 
             foreach (var item in listaPotrosnji)
             {

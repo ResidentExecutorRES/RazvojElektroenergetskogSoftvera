@@ -12,6 +12,20 @@ namespace Contract
     [DataContract]
     public class FUNKCIJA
     {
+        public FUNKCIJA()
+        {
+        }
+
+        public FUNKCIJA(int i, int u)
+        {
+            if (i > 3 || i < 1)
+                throw new ArgumentOutOfRangeException();
+            if (u > 1 || u < 0)
+                throw new ArgumentOutOfRangeException();
+            
+            ID = i;
+            UKLJUCENO = u;
+        }
         [DataMember]
         public int ID { get; set; }
         [DataMember]

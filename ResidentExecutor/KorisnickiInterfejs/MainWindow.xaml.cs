@@ -13,10 +13,12 @@ namespace KorisnickiInterfejs
 {
     public partial class MainWindow : Window
     {
-        private string _datum;
-        private string _vreme;
-        private string _geoPodrucje;
-        private float _unesenaPotrosnja;
+        GetValuesFromUI get = new GetValuesFromUI();
+
+        //private string _datum;
+        //private string _vreme;
+        //private string get.GeoPodrucja;
+        //private float get.UnesenaPotrosnja;
 
         private PathHelper path = new PathHelper();
         private string address = "net.tcp://localhost:10100/IConnect";
@@ -25,10 +27,10 @@ namespace KorisnickiInterfejs
         private NetTcpBinding binding = new NetTcpBinding();
         public List<PodaciIzBaze> podaciIzBaze = new List<PodaciIzBaze>();
         private RadSaXML radSaXML = new RadSaXML();
-        public string Datum { get => _datum; set => _datum = value; }
-        public string Vreme { get => _vreme; set => _vreme = value; }
-        public string GeoPodrucje { get => _geoPodrucje; set => _geoPodrucje = value; }
-        public float UnesenaPotrosnja { get => _unesenaPotrosnja; set => _unesenaPotrosnja = value; }
+        //public string Datum { get => _datum; set => _datum = value; }
+        //public string Vreme { get => _vreme; set => _vreme = value; }
+        //public string GeoPodrucje { get => get.GeoPodrucja; set => get.GeoPodrucja = value; }
+        //public float UnesenaPotrosnja { get => get.UnesenaPotrosnja; set => get.UnesenaPotrosnja = value; }
 
         public MainWindow()
         {
@@ -47,13 +49,14 @@ namespace KorisnickiInterfejs
             {
                 retVal = false;
                 geoGreska.Content = "Izaberite jednu od ponudjenih vrednosti";
-                geoGreska.BorderThickness = new Thickness(1);
+                geoGreska.BorderThickness = new Thickness(0);
                 geoGreska.BorderBrush = Brushes.Red;
             }
             else
             {
-                _geoPodrucje = geoCombo.Text.ToString();
+                get.GeoPodrucje = geoCombo.Text.ToString();
                 geoGreska.Content = "";
+                geoGreska.BorderBrush = Brushes.Transparent;
                 geoLabel.BorderBrush = Brushes.White;
             }
             #endregion
@@ -63,7 +66,7 @@ namespace KorisnickiInterfejs
             {
                 retVal = false;
                 potrosnjaGreska.Content = "Polje ne sme biti prazno.";
-                potrosnjaGreska.BorderThickness = new Thickness(1);
+                potrosnjaGreska.BorderThickness = new Thickness(0);
                 potrosnjaGreska.BorderBrush = Brushes.Red;
             }
             else if (float.TryParse(potrosnjaTextBox.Text, out float potrosnja))
@@ -72,14 +75,15 @@ namespace KorisnickiInterfejs
                 {
                     retVal = false;
                     potrosnjaGreska.Content = "Potrosnja ne sme biti negativna vrednost.";
-                    potrosnjaGreska.BorderThickness = new Thickness(1);
+                    potrosnjaGreska.BorderThickness = new Thickness(0);
                     potrosnjaGreska.BorderBrush = Brushes.Red;
 
                 }
                 else
                 {
-                    _unesenaPotrosnja = potrosnja;
+                    get.UnesenaPotrosnja = potrosnja;
                     potrosnjaGreska.Content = "";
+                    potrosnjaGreska.BorderBrush = Brushes.Transparent;
                     potrosnjaTextBox.BorderBrush = Brushes.White;
                 }
             }
@@ -87,7 +91,7 @@ namespace KorisnickiInterfejs
             {
                 retVal = false;
                 potrosnjaGreska.Content = "Potrosnja mora biti broj";
-                potrosnjaGreska.BorderThickness = new Thickness(1);
+                potrosnjaGreska.BorderThickness = new Thickness(0);
                 potrosnjaGreska.BorderBrush = Brushes.Red;
             }
             #endregion
@@ -96,8 +100,8 @@ namespace KorisnickiInterfejs
             if (vremeTextBox.Text.Trim().Equals("") || vremeTextBox2.Text.Trim().Equals("") || vremeTextBox3.Text.Trim().Equals(""))
             {
                 retVal = false;
-                vremeGreska.Content = "Sva polja za vreme morate uneti. [hh:mm:ss]";
-                vremeGreska.BorderThickness = new Thickness(1);
+                vremeGreska.Content = "Sva polja za vreme morate uneti.";
+                vremeGreska.BorderThickness = new Thickness(0);
                 vremeGreska.BorderBrush = Brushes.Red;
             }
             else if (int.TryParse(vremeTextBox.Text, out int sati) &&
@@ -107,14 +111,15 @@ namespace KorisnickiInterfejs
                 if ((sati < 0 || sati > 24) || (minuti < 0 || minuti > 60) || (sekunde < 0 || sekunde > 60))
                 {
                     retVal = false;
-                    vremeGreska.Content = "Unesite validne vrednosti za vreme. [hh:mm:ss]";
-                    vremeGreska.BorderThickness = new Thickness(1);
+                    vremeGreska.Content = "Unesite validne vrednosti za vreme.";
+                    vremeGreska.BorderThickness = new Thickness(0);
                     vremeGreska.BorderBrush = Brushes.Red;
                 }
                 else
                 {
-                    _vreme = sati.ToString() + ":" + minuti.ToString() + ":" + sekunde.ToString() + ".000";
+                    get.Vreme = sati.ToString() + ":" + minuti.ToString() + ":" + sekunde.ToString() + ".000";
                     vremeGreska.Content = "";
+                    vremeGreska.BorderBrush = Brushes.Transparent;
                     vremeTextBox.BorderBrush = Brushes.White;
                     vremeTextBox2.BorderBrush = Brushes.White;
                     vremeTextBox3.BorderBrush = Brushes.White;
@@ -125,7 +130,7 @@ namespace KorisnickiInterfejs
             {
                 retVal = false;
                 vremeGreska.Content = "Niste uneli validne vrednosti za vreme";
-                vremeGreska.BorderThickness = new Thickness(1);
+                vremeGreska.BorderThickness = new Thickness(0);
                 vremeGreska.BorderBrush = Brushes.Red;
             }
 
@@ -133,6 +138,7 @@ namespace KorisnickiInterfejs
             DateTime dateTime1 = datumPicker.DisplayDate;
             DateTime dateTime2 = DateTime.Now;
             DateTime dateTime3 = new DateTime();
+
             dateTime3.AddYears(dateTime2.Year - 5);
 
             if (datumPicker.Text.Equals(""))
@@ -142,7 +148,7 @@ namespace KorisnickiInterfejs
                 datumGreska.BorderThickness = new Thickness(0);
                 datumGreska.BorderBrush = Brushes.Red;
             }
-            else if (DateTime.Compare(dateTime1, dateTime2) > 0)
+            else if (datumPicker.SelectedDate.Value.Date > DateTime.Now)
             {
                 retVal = false;
                 datumGreska.Content = "Nije moguc unos vremena u buducnosti";
@@ -158,8 +164,9 @@ namespace KorisnickiInterfejs
             }
             else
             {
-                _datum = datumPicker.SelectedDate.Value.Date.ToShortDateString();
+                get.Datum = datumPicker.SelectedDate.Value.Date.ToShortDateString();
                 datumGreska.Content = "";
+                vremeGreska.BorderBrush = Brushes.Transparent;
                 datumPicker.BorderBrush = Brushes.White;
             }
 
@@ -170,6 +177,9 @@ namespace KorisnickiInterfejs
 
         private void DuplexSample(string s)
         {
+            if (String.IsNullOrEmpty(s))
+                throw new ArgumentNullException();
+
             EndpointAddress address = new EndpointAddress(addressDuplex);
 
             var clientCallback = new UpisiCallback();
@@ -186,8 +196,8 @@ namespace KorisnickiInterfejs
             {
                 string idGeoPodrucja = "";
                 bool nadjenoUTabeli = false;
-                string[] trimovano = _datum.Split('/');                
-                string datum = trimovano[2] + "-" + trimovano[0] + "-" + trimovano[1] + " " + _vreme;
+                string[] trimovano = get.Datum.Split('/');                
+                string datum = trimovano[2] + "-" + trimovano[0] + "-" + trimovano[1] + " " + get.Vreme;
                 IConnect proxy = new ChannelFactory<IConnect>(binding, new EndpointAddress(address)).CreateChannel();
 
                 SqlDateTime d = SqlDateTime.Parse(datum);
@@ -195,7 +205,7 @@ namespace KorisnickiInterfejs
 
                 foreach (var item in GeoPodrucja.geoPodrucja)
                 {
-                    if (item.Value == _geoPodrucje)
+                    if (item.Value == get.GeoPodrucje)
                         idGeoPodrucja = item.Key;
                 }                
 
@@ -210,7 +220,7 @@ namespace KorisnickiInterfejs
 
                string upit = "INSERT INTO UneseneVrednosti " +
                       "(IDGeoPodrucja, VremeMerenja, Vrednost) " +
-                      "VALUES ('" + idGeoPodrucja + "', '" + datum + "', " + _unesenaPotrosnja + ")";
+                      "VALUES ('" + idGeoPodrucja + "', '" + datum + "', " + get.UnesenaPotrosnja + ")";
 
                 if (nadjenoUTabeli == false)
                     DuplexSample(upit);

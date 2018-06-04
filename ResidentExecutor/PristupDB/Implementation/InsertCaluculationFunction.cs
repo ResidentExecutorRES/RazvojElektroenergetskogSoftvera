@@ -17,6 +17,12 @@ namespace PristupDB
 
             foreach (var item in insertInto)
             {
+                if (!(item.Contains("INSERT INTO") && item.Contains("VALUES")))
+                    throw new ArgumentException();
+            }
+
+            foreach (var item in insertInto)
+            {
                 using (SqlCommands.cmd = new SqlCommand(item, SqlCommands.conn))
                 {
                     SqlCommands.conn.Open();

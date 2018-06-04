@@ -15,7 +15,8 @@ namespace PristupDB
         public  List<PodaciIzBaze> DanasnjiDatum()
         {
             IGetSelectQuery selectQuery = new GetSelectQuery();
-            SqlCommands.conn.Open();          
+            SqlCommands.conn.Open();     
+            
             SqlCommands.cmd = new SqlCommand(selectQuery.GetFromUneseneVrednostiDate(), SqlCommands.conn);
             SqlDataReader reader = SqlCommands.cmd.ExecuteReader();
             List<PodaciIzBaze> retVal = new List<PodaciIzBaze>();

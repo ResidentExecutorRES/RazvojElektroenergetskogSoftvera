@@ -36,7 +36,7 @@ namespace ServisniSloj
             List<int> listaID = new List<int>();
             foreach (var item in (new RadSaXML().CitajIzXML()))
             {
-                if (item.ID <= 1 || item.ID >= 3)
+                if (item.ID < 1 || item.ID >3)
                     throw new InvalidOperationException("File 'rezidentne_funkcije.xml' nije vratio validne vrednosi za ID");
                 if(item.UKLJUCENO < 0 || item.UKLJUCENO > 1)
                     throw new InvalidOperationException("File 'rezidentne_funkcije.xml' nije vratio validne vrednosi za UKLJUCENO");

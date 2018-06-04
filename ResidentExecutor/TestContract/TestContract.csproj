@@ -48,7 +48,9 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestCalculationTable.cs" />
+    <Compile Include="TestFunkcija.cs" />
     <Compile Include="TestGeoPodrucja.cs" />
+    <Compile Include="TestGetValues.cs" />
     <Compile Include="TestPathHelper.cs" />
     <Compile Include="TestPodaciIzBaze.cs" />
   </ItemGroup>

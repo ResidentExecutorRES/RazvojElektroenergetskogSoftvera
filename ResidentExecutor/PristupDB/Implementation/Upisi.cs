@@ -12,6 +12,9 @@ namespace PristupDB
     {
         public void PosaljiInsert(string insertInto)
         {
+            if (!(insertInto.Contains("INSERT INTO") && insertInto.Contains("VALUES")))
+                throw new ArgumentException("Nevalidan INSERT upit!");
+
             using (SqlCommands.cmd = new SqlCommand(insertInto, SqlCommands.conn))
             {
                 SqlCommands.conn.Open();

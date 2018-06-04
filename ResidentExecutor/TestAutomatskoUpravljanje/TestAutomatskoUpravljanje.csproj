@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestAutomatic.cs" />
     <Compile Include="TestCallback2.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -53,6 +54,10 @@
     <ProjectReference Include="..\AutomatskoUpravljanje\AutomatskoUpravljanje.csproj">
       <Project>{E24D6E24-E3C9-42ED-9DE2-A59E02FDB734}</Project>
       <Name>AutomatskoUpravljanje</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contract\Contract.csproj">
+      <Project>{09C0645E-12FB-488E-988F-4C3A67D40524}</Project>
+      <Name>Contract</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

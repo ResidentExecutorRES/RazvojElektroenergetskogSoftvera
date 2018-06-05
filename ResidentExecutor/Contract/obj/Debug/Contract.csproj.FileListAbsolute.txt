@@ -1,0 +1,5 @@
+C:\Users\Genguša\Desktop\FAX\RES\RazvojElektroenergetskogSoftvera\ResidentExecutor\Contract\bin\Debug\Contract.dll
+C:\Users\Genguša\Desktop\FAX\RES\RazvojElektroenergetskogSoftvera\ResidentExecutor\Contract\bin\Debug\Contract.pdb
+C:\Users\Genguša\Desktop\FAX\RES\RazvojElektroenergetskogSoftvera\ResidentExecutor\Contract\obj\Debug\Contract.csproj.CoreCompileInputs.cache
+C:\Users\Genguša\Desktop\FAX\RES\RazvojElektroenergetskogSoftvera\ResidentExecutor\Contract\obj\Debug\Contract.dll
+C:\Users\Genguša\Desktop\FAX\RES\RazvojElektroenergetskogSoftvera\ResidentExecutor\Contract\obj\Debug\Contract.pdb

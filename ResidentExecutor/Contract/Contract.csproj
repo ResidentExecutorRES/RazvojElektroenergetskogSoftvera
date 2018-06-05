@@ -45,11 +45,11 @@
     <Compile Include="Exceptions\VremeException.cs" />
     <Compile Include="GetValuesFromUI.cs" />
     <Compile Include="Interfaces\IGetSelectQuery.cs" />
+    <Compile Include="Interfaces\IXml.cs" />
     <Compile Include="Models\CalculationTable.cs" />
     <Compile Include="Models\FUNKCIJA.cs" />
     <Compile Include="GeoPodrucja.cs" />
     <Compile Include="Interfaces\ICalculationFunctions.cs" />
-    <Compile Include="Interfaces\ICitajXml.cs" />
     <Compile Include="Interfaces\ISimplexIntreface.cs" />
     <Compile Include="Interfaces\IDuplexInterface.cs" />
     <Compile Include="Models\PodaciIzBaze.cs" />
@@ -57,6 +57,5 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RadSaXML.cs" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

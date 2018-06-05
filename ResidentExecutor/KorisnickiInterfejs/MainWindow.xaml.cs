@@ -162,8 +162,17 @@ namespace KorisnickiInterfejs
                 datumGreska.BorderThickness = new Thickness(0);
                 datumGreska.BorderBrush = Brushes.Red;
             }
+            else if(SqlDateTime.Parse((datumPicker.SelectedDate.Value.Date.ToString().Replace("12:00:00 AM", "") + get.Vreme).ToString()) > 
+                    SqlDateTime.Parse(DateTime.Now.ToString()))
+            {
+                retVal = false;
+                vremeGreska.Content = "Nije moguce uneti vreme u buducnosti.";
+                vremeGreska.BorderThickness = new Thickness(0);
+                vremeGreska.BorderBrush = Brushes.Red;
+            }
             else
             {
+
                 get.Datum = datumPicker.SelectedDate.Value.Date.ToShortDateString();
                 datumGreska.Content = "";
                 vremeGreska.BorderBrush = Brushes.Transparent;

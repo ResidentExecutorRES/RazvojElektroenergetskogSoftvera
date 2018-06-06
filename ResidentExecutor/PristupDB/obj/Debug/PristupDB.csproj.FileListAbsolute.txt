@@ -1,0 +1,15 @@
+C:\Users\Genguša\Desktop\FAX\RES\RazvojElektroenergetskogSoftvera\ResidentExecutor\PristupDB\bin\Debug\PristupDB.exe.config
+C:\Users\Genguša\Desktop\FAX\RES\RazvojElektroenergetskogSoftvera\ResidentExecutor\PristupDB\bin\Debug\PristupDB.exe
+C:\Users\Genguša\Desktop\FAX\RES\RazvojElektroenergetskogSoftvera\ResidentExecutor\PristupDB\bin\Debug\PristupDB.pdb
+C:\Users\Genguša\Desktop\FAX\RES\RazvojElektroenergetskogSoftvera\ResidentExecutor\PristupDB\bin\Debug\Contract.dll
+C:\Users\Genguša\Desktop\FAX\RES\RazvojElektroenergetskogSoftvera\ResidentExecutor\PristupDB\bin\Debug\KorisnickiInterfejs.exe
+C:\Users\Genguša\Desktop\FAX\RES\RazvojElektroenergetskogSoftvera\ResidentExecutor\PristupDB\bin\Debug\Contract.pdb
+C:\Users\Genguša\Desktop\FAX\RES\RazvojElektroenergetskogSoftvera\ResidentExecutor\PristupDB\bin\Debug\KorisnickiInterfejs.pdb
+C:\Users\Genguša\Desktop\FAX\RES\RazvojElektroenergetskogSoftvera\ResidentExecutor\PristupDB\bin\Debug\KorisnickiInterfejs.exe.config
+C:\Users\Genguša\Desktop\FAX\RES\RazvojElektroenergetskogSoftvera\ResidentExecutor\PristupDB\obj\Debug\PristupDB.csprojAssemblyReference.cache
+C:\Users\Genguša\Desktop\FAX\RES\RazvojElektroenergetskogSoftvera\ResidentExecutor\PristupDB\obj\Debug\PristupDB.csproj.CoreCompileInputs.cache
+C:\Users\Genguša\Desktop\FAX\RES\RazvojElektroenergetskogSoftvera\ResidentExecutor\PristupDB\obj\Debug\PristupDB.csproj.CopyComplete
+C:\Users\Genguša\Desktop\FAX\RES\RazvojElektroenergetskogSoftvera\ResidentExecutor\PristupDB\obj\Debug\PristupDB.exe
+C:\Users\Genguša\Desktop\FAX\RES\RazvojElektroenergetskogSoftvera\ResidentExecutor\PristupDB\obj\Debug\PristupDB.pdb
+C:\Users\Genguša\Desktop\FAX\RES\RazvojElektroenergetskogSoftvera\ResidentExecutor\PristupDB\obj\Debug\PristupDB.Properties.Resources.resources
+C:\Users\Genguša\Desktop\FAX\RES\RazvojElektroenergetskogSoftvera\ResidentExecutor\PristupDB\obj\Debug\PristupDB.csproj.GenerateResource.cache

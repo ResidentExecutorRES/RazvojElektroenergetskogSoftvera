@@ -238,9 +238,15 @@ namespace KorisnickiInterfejs
         private void IzmijeniXML_Click(object sender, RoutedEventArgs e)
         {
             if (!File.Exists(path.GetPathRezidentneFunkcije()))
+            {
                 radSaXML.NapraviXMLFunkcije();
+                MessageBox.Show("XML file uspesno izmenjen");
+            }
             else
+            {
                 radSaXML.IzmeniXML();
+                MessageBox.Show("XML file uspesno izmenjen");
+            }
         }
 
     }

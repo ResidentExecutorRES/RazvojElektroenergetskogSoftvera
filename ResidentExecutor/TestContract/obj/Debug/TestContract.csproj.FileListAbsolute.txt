@@ -1,0 +1,12 @@
+C:\Users\Genguša\Desktop\FAX\RES\RazvojElektroenergetskogSoftvera\ResidentExecutor\TestContract\bin\Debug\TestContract.dll
+C:\Users\Genguša\Desktop\FAX\RES\RazvojElektroenergetskogSoftvera\ResidentExecutor\TestContract\bin\Debug\TestContract.pdb
+C:\Users\Genguša\Desktop\FAX\RES\RazvojElektroenergetskogSoftvera\ResidentExecutor\TestContract\bin\Debug\Contract.dll
+C:\Users\Genguša\Desktop\FAX\RES\RazvojElektroenergetskogSoftvera\ResidentExecutor\TestContract\bin\Debug\nunit.framework.dll
+C:\Users\Genguša\Desktop\FAX\RES\RazvojElektroenergetskogSoftvera\ResidentExecutor\TestContract\bin\Debug\nunit.mocks.dll
+C:\Users\Genguša\Desktop\FAX\RES\RazvojElektroenergetskogSoftvera\ResidentExecutor\TestContract\bin\Debug\Contract.pdb
+C:\Users\Genguša\Desktop\FAX\RES\RazvojElektroenergetskogSoftvera\ResidentExecutor\TestContract\bin\Debug\nunit.framework.xml
+C:\Users\Genguša\Desktop\FAX\RES\RazvojElektroenergetskogSoftvera\ResidentExecutor\TestContract\obj\Debug\TestContract.csprojAssemblyReference.cache
+C:\Users\Genguša\Desktop\FAX\RES\RazvojElektroenergetskogSoftvera\ResidentExecutor\TestContract\obj\Debug\TestContract.csproj.CoreCompileInputs.cache
+C:\Users\Genguša\Desktop\FAX\RES\RazvojElektroenergetskogSoftvera\ResidentExecutor\TestContract\obj\Debug\TestContract.csproj.CopyComplete
+C:\Users\Genguša\Desktop\FAX\RES\RazvojElektroenergetskogSoftvera\ResidentExecutor\TestContract\obj\Debug\TestContract.dll
+C:\Users\Genguša\Desktop\FAX\RES\RazvojElektroenergetskogSoftvera\ResidentExecutor\TestContract\obj\Debug\TestContract.pdb

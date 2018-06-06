@@ -24,6 +24,12 @@ namespace AutomatskoUpravljanje
                 listaUbacenihVrednostiWhile = new List<Dictionary<Tuple<int, string>, Tuple<DateTime, float>>>();
                 List<PodaciIzBaze> podaci = obrada.proxyDanasnji.DanasnjiDatum();
                 listaUbacenihVrednostiWhile.Add(a.Automatic(podaci));
+                //for (int i = 0; i < 10; i++)
+                //{
+                //    Console.Write(i + " ");
+                //    Thread.Sleep(1000);
+                //}
+
                 Console.WriteLine("Izvrsene funkije...");
                 List<string> uBazu = obrada.InsertIntoTable(listaUbacenihVrednostiWhile);
                 obrada.DuplexSample(uBazu);

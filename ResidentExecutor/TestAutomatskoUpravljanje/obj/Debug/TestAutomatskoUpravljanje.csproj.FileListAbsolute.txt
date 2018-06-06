@@ -1,0 +1,16 @@
+C:\Users\Genguša\Desktop\FAX\RES\RazvojElektroenergetskogSoftvera\ResidentExecutor\TestAutomatskoUpravljanje\bin\Debug\TestAutomatskoUpravljanje.dll
+C:\Users\Genguša\Desktop\FAX\RES\RazvojElektroenergetskogSoftvera\ResidentExecutor\TestAutomatskoUpravljanje\bin\Debug\TestAutomatskoUpravljanje.pdb
+C:\Users\Genguša\Desktop\FAX\RES\RazvojElektroenergetskogSoftvera\ResidentExecutor\TestAutomatskoUpravljanje\bin\Debug\AutomatskoUpravljanje.exe
+C:\Users\Genguša\Desktop\FAX\RES\RazvojElektroenergetskogSoftvera\ResidentExecutor\TestAutomatskoUpravljanje\bin\Debug\Contract.dll
+C:\Users\Genguša\Desktop\FAX\RES\RazvojElektroenergetskogSoftvera\ResidentExecutor\TestAutomatskoUpravljanje\bin\Debug\nunit.framework.dll
+C:\Users\Genguša\Desktop\FAX\RES\RazvojElektroenergetskogSoftvera\ResidentExecutor\TestAutomatskoUpravljanje\bin\Debug\ServisniSloj.dll
+C:\Users\Genguša\Desktop\FAX\RES\RazvojElektroenergetskogSoftvera\ResidentExecutor\TestAutomatskoUpravljanje\bin\Debug\AutomatskoUpravljanje.pdb
+C:\Users\Genguša\Desktop\FAX\RES\RazvojElektroenergetskogSoftvera\ResidentExecutor\TestAutomatskoUpravljanje\bin\Debug\AutomatskoUpravljanje.exe.config
+C:\Users\Genguša\Desktop\FAX\RES\RazvojElektroenergetskogSoftvera\ResidentExecutor\TestAutomatskoUpravljanje\bin\Debug\Contract.pdb
+C:\Users\Genguša\Desktop\FAX\RES\RazvojElektroenergetskogSoftvera\ResidentExecutor\TestAutomatskoUpravljanje\bin\Debug\nunit.framework.xml
+C:\Users\Genguša\Desktop\FAX\RES\RazvojElektroenergetskogSoftvera\ResidentExecutor\TestAutomatskoUpravljanje\bin\Debug\ServisniSloj.pdb
+C:\Users\Genguša\Desktop\FAX\RES\RazvojElektroenergetskogSoftvera\ResidentExecutor\TestAutomatskoUpravljanje\obj\Debug\TestAutomatskoUpravljanje.csprojAssemblyReference.cache
+C:\Users\Genguša\Desktop\FAX\RES\RazvojElektroenergetskogSoftvera\ResidentExecutor\TestAutomatskoUpravljanje\obj\Debug\TestAutomatskoUpravljanje.csproj.CoreCompileInputs.cache
+C:\Users\Genguša\Desktop\FAX\RES\RazvojElektroenergetskogSoftvera\ResidentExecutor\TestAutomatskoUpravljanje\obj\Debug\TestAutomatskoUpravljanje.csproj.CopyComplete
+C:\Users\Genguša\Desktop\FAX\RES\RazvojElektroenergetskogSoftvera\ResidentExecutor\TestAutomatskoUpravljanje\obj\Debug\TestAutomatskoUpravljanje.dll
+C:\Users\Genguša\Desktop\FAX\RES\RazvojElektroenergetskogSoftvera\ResidentExecutor\TestAutomatskoUpravljanje\obj\Debug\TestAutomatskoUpravljanje.pdb

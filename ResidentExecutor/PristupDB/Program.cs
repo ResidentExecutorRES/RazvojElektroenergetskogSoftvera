@@ -1,5 +1,6 @@
 ﻿using Contract;
 using System;
+using System.Diagnostics;
 using System.ServiceModel;
 using System.Threading;
 
@@ -15,12 +16,15 @@ namespace PristupDB
 
         static void Main(string[] args)
         {
+            Console.SetWindowSize(40, 20);
             Open();
+
             while (true)
-            {            
+            {
                 Thread.Sleep(1000);
             }
         }
+ 
         public static void Open()
         {
             svc = new ServiceHost(typeof(Connect));

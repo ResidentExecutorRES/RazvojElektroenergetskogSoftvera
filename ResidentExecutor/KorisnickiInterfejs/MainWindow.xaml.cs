@@ -15,11 +15,6 @@ namespace KorisnickiInterfejs
     {
         GetValuesFromUI get = new GetValuesFromUI();
 
-        //private string _datum;
-        //private string _vreme;
-        //private string get.GeoPodrucja;
-        //private float get.UnesenaPotrosnja;
-
         private PathHelper path = new PathHelper();
         private string address = "net.tcp://localhost:10100/IConnect";
         private string addressDuplex = "net.tcp://localhost:10102/IUpisi";
@@ -27,10 +22,7 @@ namespace KorisnickiInterfejs
         private NetTcpBinding binding = new NetTcpBinding();
         public List<PodaciIzBaze> podaciIzBaze = new List<PodaciIzBaze>();
         private RadSaXML radSaXML = new RadSaXML();
-        //public string Datum { get => _datum; set => _datum = value; }
-        //public string Vreme { get => _vreme; set => _vreme = value; }
-        //public string GeoPodrucje { get => get.GeoPodrucja; set => get.GeoPodrucja = value; }
-        //public float UnesenaPotrosnja { get => get.UnesenaPotrosnja; set => get.UnesenaPotrosnja = value; }
+
 
         public MainWindow()
         {
